@@ -20,7 +20,7 @@ export default function Home() {
         <PayPalScriptProvider
           options={{
             clientId:
-              "AagZ9APsvKnVUXZDB1B-eUHhAunII_-wQv2uRFg-8d6dPeCMEwM7fYsvrC6gwF7p2Gg8AE3dB8H5x9Jj",
+              "BAAeInT46U7jciUQKLuH91CNIF8lNfYBuYqy6qGZD3z4fTCA0fSsnDmA4kbm4h4aTmszwYa9u9bLcROX2c",
             vault: true,
             intent: "subscription",
           }}
@@ -35,7 +35,7 @@ export default function Home() {
             createSubscription={(data, actions) => {
               return actions.subscription.create({
                 plan_id:
-                  "P-5798562813009874CNIFPIHA",
+                  "P-0VC73179B9909843CNIFVWSI",
               });
             }}
            onApprove={async (data) => {
