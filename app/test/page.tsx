@@ -38,14 +38,11 @@ export default function Home() {
                   "P-5798562813009874CNIFPIHA",
               });
             }}
-            onApprove={(data) => {
-              console.log(data);
+           onApprove={async (data) => {
+  console.log(data);
 
-              alert(
-                "Subscription Active: " +
-                  data.subscriptionID
-              );
-            }}
+  alert("Subscription Active: " + data.subscriptionID);
+}}
           />
         </PayPalScriptProvider>
       </div>
