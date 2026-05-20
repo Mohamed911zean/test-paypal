@@ -20,7 +20,7 @@ export default function Home() {
         <PayPalScriptProvider
           options={{
             clientId:
-              "BAAeInT46U7jciUQKLuH91CNIF8lNfYBuYqy6qGZD3z4fTCA0fSsnDmA4kbm4h4aTmszwYa9u9bLcROX2c",
+              process.env.NEXT_PUBLIC_PAYPAL_LIVE_CLIENT_ID!,
             vault: true,
             intent: "subscription",
           }}
@@ -35,14 +35,17 @@ export default function Home() {
             createSubscription={(data, actions) => {
               return actions.subscription.create({
                 plan_id:
-                  "P-0VC73179B9909843CNIFVWSI",
+                  process.env.NEXT_PUBLIC_PAYPAL_LIVE_PLAN_ID!,
               });
             }}
-           onApprove={async (data) => {
-  console.log(data);
+            onApprove={async (data) => {
+              console.log(data);
 
-  alert("Subscription Active: " + data.subscriptionID);
-}}
+              alert(
+                "Subscription Active: " +
+                  data.subscriptionID
+              );
+            }}
           />
         </PayPalScriptProvider>
       </div>
