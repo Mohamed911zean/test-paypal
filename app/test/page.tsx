@@ -18,36 +18,29 @@ export default function Home() {
         </p>
 
         <PayPalScriptProvider
-          options={{
-            clientId:
-              process.env.NEXT_PUBLIC_PAYPAL_LIVE_CLIENT_ID!,
-            vault: true,
-            intent: "subscription",
-          }}
-        >
-          <PayPalButtons
-            style={{
-              layout: "vertical",
-              shape: "pill",
-              color: "gold",
-              label: "subscribe",
-            }}
-            createSubscription={(data, actions) => {
-              return actions.subscription.create({
-                plan_id:
-                  process.env.NEXT_PUBLIC_PAYPAL_LIVE_PLAN_ID!,
-              });
-            }}
-            onApprove={async (data) => {
-              console.log(data);
-
-              alert(
-                "Subscription Active: " +
-                  data.subscriptionID
-              );
-            }}
-          />
-        </PayPalScriptProvider>
+  options={{
+clientId: process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID!,
+    vault: true,
+    intent: "subscription",
+  }}
+>
+  <PayPalButtons
+    style={{
+      layout: "vertical",
+      shape: "pill",
+      color: "gold",
+      label: "subscribe",
+    }}
+    createSubscription={(data, actions) => {
+      return actions.subscription.create({
+plan_id: process.env.NEXT_PUBLIC_PAYPAL_PLAN_ID!,
+      });
+    }}
+    onApprove={async (data) => {
+      alert("Subscription Active: " + data.subscriptionID);
+    }}
+  />
+</PayPalScriptProvider>
       </div>
     </div>
   );
